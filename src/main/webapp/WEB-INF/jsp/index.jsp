@@ -1,55 +1,32 @@
-<%--<!DOCTYPE html>--%>
-
-<%--<html lang="en">--%>
-<%--<head>--%>
-<%--    <meta charset="UTF-8">--%>
-<%--    <title>Hello ${name}!</title>--%>
-<%--</head>--%>
-
-<%--<body>--%>
-
-<%--<h2>Hello ${name} ${voies}!</h2>--%>
-
-<%--</body>--%>
-
-<%--</html>--%>
-
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>Voie List</title>
+    <title>Accueil</title>
 </head>
 <body>
-<h1>Voie List</h1>
+<jsp:include page="header.jsp"></jsp:include>
 
-<br/><br/>
-<div>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Longueur</th>
-            <th>Numero Voie</th>
-            <th>Altitude</th>
-            <th>Difficulte</th>
-            <th>Type roche</th>
-        </tr>
-        <c:forEach  items="${voies}" var ="voie">
-            <tr>
-                <td>${voie.id}</td>
-                <td>${voie.longueur}</td>
-                <td>${voie.numero_voie}</td>
-                <td>${voie.altitude}</td>
-                <td>${voie.difficulte}</td>
-                <td>${voie.type_roche}</td>
+<div class="container" style="margin-top:30px">
 
-            </tr>
-        </c:forEach>
-    </table>
+    <div class="col-sm-8">
+<h5>Montagne rouge, Dec 7, 2017</h5>
+<p> text..</p>
+<p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+    ullamco.</p>
+<br>
+<h2>TITLE HEADING</h2>
+<h5>Title description, Sep 2, 2017</h5>
+<p>Some text..</p>
+<p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+    ullamco.</p>
 </div>
+</div>
+
 </body>
 
 </html>

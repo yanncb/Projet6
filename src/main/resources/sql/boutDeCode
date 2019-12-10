@@ -1,0 +1,132 @@
+package com.ocr.amis.escalade.repository.impl;
+
+import com.ocr.amis.escalade.models.Recherche;
+import com.ocr.amis.escalade.models.Site;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import java.util.List;
+
+//INUTILE de créer cette classe
+public class SiteRepositoryImpl /*implements SiteRepository */ {
+
+    @PersistenceContext
+    EntityManager entityManager;
+
+    public List<Site> findSiteByCritere(Recherche recherche) {
+        //HQL
+        String hql = "SELECT si";
+        hql += " FROM Site si";
+        hql += " JOIN si.secteurs se";
+        hql += " JOIN se.voie v";
+        hql += " JOIN v.longueurs l";
+        hql += " WHERE 1=1";
+        if (recherche.getPays() != null) {
+            hql += " AND si.pays = " + recherche.getPays();
+        }
+        if (recherche.getNbSecteurs() != 0) {
+            hql += " AND size(si.secteurs) = :nbSecteurs";
+        }
+        if (recherche.getCotation() != null) {
+            hql += " AND l.cotation = " + recherche.getCotation();
+        }
+        Query query = entityManager.createQuery(hql);
+        if (recherche.getNbSecteurs() != 0) {
+            query.setParameter("nbSecteurs", recherche.getNbSecteurs());
+        }
+        return query.getResultList();
+    }
+
+
+//        CriteriaBuilder cb = entityManager.getCriteriaBuilder();  // creation de la liaison avec la bdd pour pouvoir creer requetage avec criteres
+//
+//        CriteriaQuery<Site> criteriaQuery = cb.createQuery(Site.class); // mappage des criteres de recherche avec la classe voulue
+//        Root<Site> root = criteriaQuery.from(Site.class); // Affecter les valeurs a nos criteres de recherches
+//
+//        List<Predicate> predicatesList = new ArrayList<>(); // Liste des criteres de recherches
+//
+//
+//        if (recherche.getPays() != null) {
+//            predicatesList.add(cb.like(root.get("sit_loc_pays"), "%" + recherche.getPays() + "%"));
+//            //predicatesList.add(cb.like(root.get("secteurs").get("sec_nom"), "%" + recherche.getPays() + "%"));
+//            //SELECT * FROM SITE si JOIN SECTEUR se ON se.site_id = si.id WHERE   sit_loc_pays=%recherche%
+//        }
+//
+//        if (recherche.getNbSecteurs() != 0) {
+//            Subquery<Long> subQuerySecteur = criteriaQuery.subquery(Long.class);
+//            Root<Secteur> fromSecteur = subQuerySecteur.from(Secteur.class);
+//            subQuerySecteur.select(cb.count(fromSecteur.get("id"))).where(cb.equal(fromSecteur.get("site.id"), root.get("id")));
+//
+//            criteriaQuery.where(cb.equal(subQuerySecteur, recherche.getNbSecteurs()));
+//        }
+//        //SELECT * FROM SITE si JOIN SECTEUR se ON se.site_id = si.id group by si.* having count(*) = recherche.getNbSecteurs()
+//        //SELECT * FROM SITE si WHERE (SELECT count(se.id) FROM SECTEUR se where se.site_id = si.id) =  recherche.getNbSecteurs()
+//
+//        //SELECT * FROM SITE si WHERE(SELECT lon_cotation FROM LONGUEUR lo where lo.voi_id = si.id) = recherche.recupereCotation()
+//
+//        SELECT * FROM t_site where id in (
+//
+//                SELECT si.id
+//        from SITE S si
+//        JOIN secterur se ON ...
+//        JOIN voie v ON ...
+//        JOIN longueur c on...
+//        )
+//
+//
+//        if (recherche.getCotation() != null) {
+//            Subquery<Long> subqueryCotation = criteriaQuery.subquery(Long.class);
+//            Root<Longueur> fromLongueur = subqueryCotation.from(Longueur.class);
+//            subqueryCotation.select(cb.equal(fromLongueur.get("cotation"))).where(cb.equal(fromLongueur.get("")))
+//
+//            criteriaQuery.where(cb.in(subqueryCotation, recherche.getNbSecteurs()));
+//        }
+//
+//
+//        if (!predicatesList.isEmpty()) {
+//            criteriaQuery.where(predicatesList.toArray(new Predicate[predicatesList.size()]));
+//        }
+//
+//        return entityManager.createQuery(criteriaQuery).getResultList();
+//    }
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+Code pour plus tard gestion des roles a adapter
+// TODO
+
+            <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+            <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+            <security:authorize ifAllGranted="ROLE_USER">    Welcome <%= request.getUserPrincipal().getName() %>
+                <a href="<c:url value="/j_spring_security_logout"/>">Logout</a><br/> </security:authorize>
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Condition  JSP
+
+            <sec:authorize access="isAuthenticated()">    YES, you are logged in! </sec:authorize>
+
+            <sec:authorize var="loggedIn" access="isAuthenticated()" />
+            <c:choose>     <c:when test="${loggedIn}">         You are logged in     </c:when>
+                <c:otherwise>         You are logged out     </c:otherwise> </c:choose>
+
+}
+------------------------------------------------------------------------------------------------------------------------------------
+Requete SQL JOINTURE !!
+
+//    @Autowired
+//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.jdbcAuthentication()
+//                .dataSource(dataSource)
+//                .usersByUsernameQuery("SELECT util_pseudo, utill_mot_de_passe, true "
+//                        + "FROM t_utilisateur "
+//                        + "WHERE util_pseudo =?")
+//                .authoritiesByUsernameQuery("SELECT util_pseudo, rol_nom "
+//                        + "FROM t_utilisateur u "
+//                        + "LEFT JOIN t_role_utilisateur "
+//                        + "ON t_role_utilisateur.role_id = u.utilisateur_id "
+//                        + "LEFT JOIN t_role "
+//                        +"ON t_role.role_id = u.utilisateur_id "
+//                        + "WHERE  util_pseudo = ?");
+//    }
