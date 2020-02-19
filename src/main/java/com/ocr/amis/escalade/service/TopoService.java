@@ -7,6 +7,7 @@ import java.util.List;
 public interface TopoService {
 
     List<Topo> rechercherTousLesTopos();
+
     List<Topo> rechercherTousLesToposPourUtilisateur(String pseudo);
 
     /**
@@ -22,5 +23,7 @@ public interface TopoService {
     void modifierTopo(Topo topo);
 
     void supprimerTopo(Integer topoId);
+
+    void demandeReservation(Topo topo);
 
 }

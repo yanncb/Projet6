@@ -24,6 +24,7 @@
                 <th>Lieu</th>
                 <th>Disponibilité</th>
                 <th>Reservé par </th>
+                <th>Demande de reservation  </th>
                 <th>Modification</th>
                 <th>Suppresion</th>
             </tr>
@@ -36,6 +37,7 @@
                     <th>${topo.lieu}</th>
                     <th>${topo.dispo}</th>
                     <th>${topo.utilisateurReserveTopo.pseudo}</th>
+                    <th>${topo.demandeReservation}</th>
                     <th><a href="modifier-topo/${topo.id}" class="btn btn-success">Modifier</a></th>
                     <th><a href="supprimer-topo/${topo.id}" class="btn btn-danger">Supprimer</a></th>
                 </tr>

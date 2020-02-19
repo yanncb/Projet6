@@ -8,47 +8,44 @@
 <body>
 <jsp:include page="header.jsp"></jsp:include>
 
-<div class="container" style="margin-top:30px">
-    <div class="jumbotron text-center" style="margin-bottom:0">
+<div class="container">
+    <div class="jumbotron text-center" >
         <h1>Liste de tous les topos disponible</h1>
     </div>
 
-    <div class="col-sm-8">
-        <h2>Topos</h2>
 
-        <table class="table table-bordered">
-            <tr>
-                <th>ID</th>
-                <th>Nom</th>
-                <th>Date de parution</th>
-                <th>Lieu</th>
-                <th>Disponibilité</th>
-                <th>Reservé par </th>
-                <th>Reservé </th>
-                <th>Modification</th>
-                <th>Suppresion</th>
-            </tr>
-
-            <c:forEach items="${topos}" var="topo">
-                <tr>
-                    <th>${topo.id}</th>
-                    <th>${topo.nom}</th>
-                    <th>${topo.dateParution}</th>
-                    <th>${topo.lieu}</th>
-                    <th>${topo.dispo}</th>
-                    <th>${topo.utilisateurReserveTopo.pseudo}</th>
-                    <th>${topo.reservation}</th>
-                    <th><a href="modifier-topo/${topo.id}" class="btn btn-success">Modifier</a></th>
-                    <th><a href="supprimer-topo/${topo.id}" class="btn btn-danger">Supprimer</a></th>
-                </tr>
-            </c:forEach>
-        </table>
+    <h2>Topos</h2>
+    <div class="row" style="margin-bottom: 10px; border: black solid 2px">
+        <div class="col">ID</div>
+        <div class="col">Nom</div>
+        <div class="col-2">Date de parution</div>
+        <div class="col">Lieu</div>
+        <div class="col">Disponibilité</div>
+        <div class="col">Reservé par</div>
+        <div class="col">Reservé</div>
+        <div class="col">Modification</div>
+        <div class="col">Suppresion</div>
+        <div class="col">Reservation topo</div>
+    </div>
+    <c:forEach items="${topos}" var="topo">
+        <div class="row" style="margin-bottom: 10px">
+            <div class="col">${topo.id}</div>
+            <div class="col">${topo.nom}</div>
+            <div class="col-2">${topo.dateParution}</div>
+            <div class="col">${topo.lieu}</div>
+            <div class="col">${topo.dispo}</div>
+            <div class="col">${topo.utilisateurReserveTopo.pseudo}</div>
+            <div class="col">${topo.reservation}</div>
+            <div class="col"><a href="modifier-topo/${topo.id}" class="btn btn-success">Modifier</a></div>
+            <div class="col"><a href="supprimer-topo/${topo.id}" class="btn btn-danger">Supprimer</a></div>
+            <div class="col"><a href="reserver-topo/${topo.id}" class="btn btn-secondary">Reserver Topo</a></div>
+        </div>
+    </c:forEach>
         <div>
             <a class="button" href="/ajout-topo" class="btn btn-secondary">Ajouter un topo </a>
         </div>
 
 
-    </div>
 </div>
 </body>
 </html>

@@ -11,10 +11,10 @@
 
 <div class="container">
 
-    <h1>Modifier Site</h1>
+    <h1>Modifier Topo</h1>
     <form:form method="POST" modelAttribute="topo" action="/modifier-topo">
 
-        <form:input type="hidden" path="id" autofocus="true"></form:input>
+        <form:input type="hidden" path="id" ></form:input>
 
         <form:input type="text" path="nom" class="form-control form-control-sm mb-3" placeholder="Nom du topo"
                     autofocus="true"></form:input>

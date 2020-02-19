@@ -1,6 +1,8 @@
 package com.ocr.amis.escalade.controller;
 
+import com.ocr.amis.escalade.models.Secteur;
 import com.ocr.amis.escalade.models.Topo;
+import com.ocr.amis.escalade.models.Utilisateur;
 import com.ocr.amis.escalade.service.TopoService;
 import com.ocr.amis.escalade.service.UtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +49,7 @@ public class TopoController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         topo.setUtilisateurPossedantTopo(utilisateurService.chargementUtilisateurParPseudo(authentication.getName()));
         topoService.ajouterTopo(topo);
-        return "/liste-de-mes-topos";
+        return "redirect:/liste-de-mes-topos";
     }
 
     @GetMapping("/modifier-topo/{id}")
@@ -70,5 +72,21 @@ public class TopoController {
     public String supprimerTopo(Model model, @PathVariable Integer topoId) {
         topoService.supprimerTopo(topoId);
         return "redirect:/liste-de-mes-topos";
+    }
+
+    @GetMapping("/reserver-topo/{topoId}")
+    public String demandeReservation(Model model, @PathVariable Integer topoId){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        model.addAttribute("utilisateurEmprunteur", authentication);
+        model.addAttribute("topo",topoService.rechercherTopoParId(topoId));
+        return ("/reserver-topo");
+    }
+
+    @PostMapping("/reserver-topo")
+    public String envoieReservation(@ModelAttribute("topo")Topo topo){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        topo.setUtilisateurReserveTopo(utilisateurService.chargementUtilisateurParPseudo(authentication.getName()));
+        topoService.demandeReservation(topo);
+        return ("redirect:/liste-de-mes-topos");
     }
 }

@@ -30,6 +30,9 @@ public class Topo {
     @Column(name = "top_confirmation_reservation")
     private boolean reservation;
 
+    @Column(name = "top_demande_reservation")
+    private String demandeReservation;
+
     @ManyToOne
     @JoinColumn(name = "utilisateur_createur_id")
     private Utilisateur utilisateurPossedantTopo;
@@ -41,15 +44,24 @@ public class Topo {
     public Topo() {
     }
 
-    public Topo(String dateParution, String nom, String description, String lieu, boolean dispo, boolean reservation, Utilisateur utilisateurPossedantTopo, Utilisateur utilisateurReserveTopo) {
+    public Topo(String dateParution, String nom, String description, String lieu, boolean dispo, boolean reservation, String demandeReservation, Utilisateur utilisateurPossedantTopo, Utilisateur utilisateurReserveTopo) {
         this.dateParution = dateParution;
         this.nom = nom;
         this.description = description;
         this.lieu = lieu;
         this.dispo = dispo;
         this.reservation = reservation;
+        this.demandeReservation = demandeReservation;
         this.utilisateurPossedantTopo = utilisateurPossedantTopo;
         this.utilisateurReserveTopo = utilisateurReserveTopo;
+    }
+
+    public String getDemandeReservation() {
+        return demandeReservation;
+    }
+
+    public void setDemandeReservation(String demandeReservation) {
+        this.demandeReservation = demandeReservation;
     }
 
     public boolean isReservation() {
@@ -134,6 +146,7 @@ public class Topo {
                 ", lieu='" + lieu + '\'' +
                 ", dispo=" + dispo +
                 ", reservation=" + reservation +
+                ", demandeReservation='" + demandeReservation + '\'' +
                 ", utilisateurPossedantTopo=" + utilisateurPossedantTopo +
                 ", utilisateurReserveTopo=" + utilisateurReserveTopo +
                 '}';

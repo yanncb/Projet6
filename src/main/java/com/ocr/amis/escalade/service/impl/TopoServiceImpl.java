@@ -1,6 +1,7 @@
 package com.ocr.amis.escalade.service.impl;
 
 import com.ocr.amis.escalade.models.Topo;
+import com.ocr.amis.escalade.models.Utilisateur;
 import com.ocr.amis.escalade.repository.TopoRepository;
 import com.ocr.amis.escalade.service.TopoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,13 @@ public class TopoServiceImpl implements TopoService {
     @Override
     public void supprimerTopo(Integer id) {
         topoRepository.deleteById(id);
+    }
+
+    @Override
+    public void demandeReservation(Topo topo) {
+        topo.setDemandeReservation("En cours");
+        topo.setUtilisateurPossedantTopo(topo.getUtilisateurPossedantTopo());
+        topoRepository.save(topo);
     }
 
 }
