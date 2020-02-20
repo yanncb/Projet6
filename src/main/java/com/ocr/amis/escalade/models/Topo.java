@@ -41,37 +41,6 @@ public class Topo {
     @JoinColumn(name = "utilisateur_emprunteur_id")
     private Utilisateur utilisateurReserveTopo;
 
-    public Topo() {
-    }
-
-    public Topo(String dateParution, String nom, String description, String lieu, boolean dispo, boolean reservation, String demandeReservation, Utilisateur utilisateurPossedantTopo, Utilisateur utilisateurReserveTopo) {
-        this.dateParution = dateParution;
-        this.nom = nom;
-        this.description = description;
-        this.lieu = lieu;
-        this.dispo = dispo;
-        this.reservation = reservation;
-        this.demandeReservation = demandeReservation;
-        this.utilisateurPossedantTopo = utilisateurPossedantTopo;
-        this.utilisateurReserveTopo = utilisateurReserveTopo;
-    }
-
-    public String getDemandeReservation() {
-        return demandeReservation;
-    }
-
-    public void setDemandeReservation(String demandeReservation) {
-        this.demandeReservation = demandeReservation;
-    }
-
-    public boolean isReservation() {
-        return reservation;
-    }
-
-    public void setReservation(boolean reservation) {
-        this.reservation = reservation;
-    }
-
     public int getId() {
         return id;
     }
@@ -120,6 +89,22 @@ public class Topo {
         this.dispo = dispo;
     }
 
+    public boolean isReservation() {
+        return reservation;
+    }
+
+    public void setReservation(boolean reservation) {
+        this.reservation = reservation;
+    }
+
+    public String getDemandeReservation() {
+        return demandeReservation;
+    }
+
+    public void setDemandeReservation(String demandeReservation) {
+        this.demandeReservation = demandeReservation;
+    }
+
     public Utilisateur getUtilisateurPossedantTopo() {
         return utilisateurPossedantTopo;
     }
@@ -147,8 +132,6 @@ public class Topo {
                 ", dispo=" + dispo +
                 ", reservation=" + reservation +
                 ", demandeReservation='" + demandeReservation + '\'' +
-                ", utilisateurPossedantTopo=" + utilisateurPossedantTopo +
-                ", utilisateurReserveTopo=" + utilisateurReserveTopo +
                 '}';
     }
 }

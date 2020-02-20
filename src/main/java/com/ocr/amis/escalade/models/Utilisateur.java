@@ -51,13 +51,13 @@ public class Utilisateur implements Serializable, UserDetails {
     @Column(name = "utill_mot_de_passe")
     private String motDePasse;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "utilisateur")
+    @OneToMany(mappedBy = "utilisateur")
     private List<Commentaire> commentairesList;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "utilisateurPossedantTopo")
+    @OneToMany(mappedBy = "utilisateurPossedantTopo")
     private Set<Topo> topoListPossedeParUtilisateur;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "utilisateurReserveTopo")
+    @OneToMany(mappedBy = "utilisateurReserveTopo")
     private Set<Topo> topoListReserves;
 
     @ManyToMany(mappedBy = "utilisateurs", cascade=CascadeType.ALL )
@@ -161,9 +161,6 @@ public class Utilisateur implements Serializable, UserDetails {
                 ", mail='" + mail + '\'' +
                 ", pseudo='" + pseudo + '\'' +
                 ", motDePasse='" + motDePasse + '\'' +
-                ", commentairesList=" + commentairesList +
-                ", topoListPossedeParUtilisateur=" + topoListPossedeParUtilisateur +
-                ", topoListReserves=" + topoListReserves +
                 ", roles=" + roles +
                 '}';
     }

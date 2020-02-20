@@ -16,30 +16,15 @@
 
         <form:input type="hidden" path="id" ></form:input>
 
-<%--        TODO !!! a faire marche--%>
-        <form:input type="hidden" path="${topo.utilisateurPossedantTopo.utilisateurId}" ></form:input>
+        Utilisateur id : ${utilisateurPossedantTopo.utilisateurId}
+        Nom du topo : ${topo.nom}
+        Date de parution : ${topo.dateParution}
+        Lieu du topo : ${topo.lieu}
+        Description : ${topo.description}
+        Est disponible ? : ${topo.dispo}
 
-
-        <form:input type="texte" path="nom" class="form-control form-control-sm mb-3" placeholder="${topo.nom}"
-                    autofocus="true"></form:input>
-
-        <form:input type="texte" path="dateParution" class="form-control form-control-sm mb-3"
-                    placeholder="${topo.dateParution}"></form:input>
-
-        <form:input type="texte" path="lieu" class="form-control form-control-sm mb-3" placeholder="${topo.lieu}"></form:input>
-
-        <form:input type="texte" path="description" class="form-control form-control-sm mb-3"
-                    placeholder="${topo.description}"></form:input>
-
-        <form:input type="boolean" path="dispo" class="form-control form-control-sm mb-3"
-                    placeholder="${topo.dispo}"></form:input>
-
-        <form:input type="texte" path="utilisateurReserveTopo" class="form-control form-control-sm mb-3" placeholder="${utilisateurEmprunteur.name}"></form:input>
-
-
-        <input type="submit" class="btn btn-success" value="Modifier"/>
-        <input type="reset" class="btn btn-danger" value="Reset"/>
-        <a class="btn btn-danger" href="/liste-de-mes-topos">Cancel</a>
+        <input type="submit" class="btn btn-success" value="Confirmer la réservation"/>
+        <a class="btn btn-danger" href="/liste-de-mes-topos">Annuler la demande de réservation</a>
 
 
     </form:form>

@@ -76,17 +76,15 @@ public class TopoController {
 
     @GetMapping("/reserver-topo/{topoId}")
     public String demandeReservation(Model model, @PathVariable Integer topoId){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        model.addAttribute("utilisateurEmprunteur", authentication);
-        model.addAttribute("topo",topoService.rechercherTopoParId(topoId));
+        model.addAttribute("topo", topoService.rechercherTopoParId(topoId));
         return ("/reserver-topo");
     }
 
     @PostMapping("/reserver-topo")
-    public String envoieReservation(@ModelAttribute("topo")Topo topo){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        topo.setUtilisateurReserveTopo(utilisateurService.chargementUtilisateurParPseudo(authentication.getName()));
-        topoService.demandeReservation(topo);
+    public String envoieReservation(@ModelAttribute("topo") Topo topo) {
+        Topo topoAReserver = topoService.rechercherTopoParId(topo.getId());
+        Utilisateur utilisateur = utilisateurService.chargementUtilisateurParPseudo(SecurityContextHolder.getContext().getAuthentication().getName());
+        topoService.demandeReservation(topoAReserver, utilisateur);
         return ("redirect:/liste-de-mes-topos");
     }
 }

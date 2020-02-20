@@ -1,6 +1,7 @@
 package com.ocr.amis.escalade.service;
 
 import com.ocr.amis.escalade.models.Topo;
+import com.ocr.amis.escalade.models.Utilisateur;
 
 import java.util.List;
 
@@ -24,6 +25,6 @@ public interface TopoService {
 
     void supprimerTopo(Integer topoId);
 
-    void demandeReservation(Topo topo);
+    void demandeReservation(Topo topo, Utilisateur utilisateur);
 
 }

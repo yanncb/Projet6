@@ -52,9 +52,9 @@ public class TopoServiceImpl implements TopoService {
     }
 
     @Override
-    public void demandeReservation(Topo topo) {
+    public void demandeReservation(Topo topo, Utilisateur utilisateur) {
+        topo.setUtilisateurReserveTopo(utilisateur);
         topo.setDemandeReservation("En cours");
-        topo.setUtilisateurPossedantTopo(topo.getUtilisateurPossedantTopo());
         topoRepository.save(topo);
     }
 
