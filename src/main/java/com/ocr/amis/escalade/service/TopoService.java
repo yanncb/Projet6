@@ -11,6 +11,7 @@ public interface TopoService {
 
     List<Topo> rechercherTousLesToposPourUtilisateur(String pseudo);
 
+
     /**
      * Retourne la voie avec l'id <i>id</i> ou null si aucune voie avec l'id en paramètre n'est trouvée
      *
@@ -26,5 +27,9 @@ public interface TopoService {
     void supprimerTopo(Integer topoId);
 
     void demandeReservation(Topo topo, Utilisateur utilisateur);
+
+    void validationReservation(Topo topo);
+
+    void refusReservation(Topo topo);
 
 }

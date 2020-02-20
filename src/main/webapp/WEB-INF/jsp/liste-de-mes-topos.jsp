@@ -40,6 +40,11 @@
                     <th>${topo.demandeReservation}</th>
                     <th><a href="modifier-topo/${topo.id}" class="btn btn-success">Modifier</a></th>
                     <th><a href="supprimer-topo/${topo.id}" class="btn btn-danger">Supprimer</a></th>
+
+                    <c:if test="${topo.demandeReservation.equals('En cours')}">
+                        <th><a href="accepter-reservation/${topo.id}" class="btn btn-success">Accepter reservation</a></th>
+                        <th><a href="refuser-reservation/${topo.id}" class="btn btn-danger">Refuser reservation</a></th>
+                    </c:if>
                 </tr>
             </c:forEach>
         </table>

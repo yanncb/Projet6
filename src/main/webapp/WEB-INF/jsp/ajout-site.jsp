@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <html>
 <head>
@@ -22,8 +23,9 @@
 
         <form:input type="text" path="adresse" class="form-control form-control-sm mb-3" placeholder="Adresse"></form:input>
 
+        <c:if test="${utilisateur.authorities.equals('ROLE_ADMIN')}">
         <form:input type="text" path="tag" class="form-control form-control-sm mb-3" placeholder="Tag"></form:input>
-
+        </c:if>
 
         <input type="submit" class="btn btn-success" value="Ajouter"/>
         <input type="reset" class="btn btn-danger" value="Reset"/>

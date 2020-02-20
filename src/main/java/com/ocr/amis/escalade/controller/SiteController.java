@@ -33,6 +33,8 @@ public class SiteController {
     // permet d'afficher mon formulaire qui me permettra par la suite d'ajouter un site
     @GetMapping("/ajout-site")
     public String ajouterSite(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        model.addAttribute("utilisateur", authentication);
         model.addAttribute("site", new Site());
         return "/ajout-site";
     }
@@ -44,7 +46,7 @@ public class SiteController {
         return "redirect:/sites";
     }
 
-    @GetMapping("/modifier-site/{id}/{siteId}")
+    @GetMapping("/modifier-site/{id}")
     public String recupererSite(Model model, @PathVariable Integer id) {
         model.addAttribute("site", siteService.rechercherSiteParId(id));
         return "/modifier-site";

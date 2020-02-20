@@ -25,11 +25,21 @@
 
         <form:input type="text" path="description" class="form-control form-control-sm mb-3" placeholder="Description"></form:input>
 
-<%--        <form:input type="boolean" path="dispo" class="form-control form-control-sm mb-3" placeholder="Est disponible pour être prêté ?"></form:input>--%>
         <form:select type="boolean" class="form-control" path="dispo">
             <option>true</option>
             <option>false</option>
         </form:select><br/>
+
+        <form:select type="text" class="form-control" path="demandeReservation">
+            <option>Accepté</option>
+            <option>Refusé</option>
+            <option>En attente</option>
+            <option>Pas de demande en cours</option>
+        </form:select><br/>
+        
+
+        
+
 
         <input type="submit" class="btn btn-success" value="Modifier"/>
         <input type="reset" class="btn btn-danger" value="Reset"/>

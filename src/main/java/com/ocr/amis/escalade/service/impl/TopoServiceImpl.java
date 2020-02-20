@@ -58,4 +58,21 @@ public class TopoServiceImpl implements TopoService {
         topoRepository.save(topo);
     }
 
+    @Override
+    public void validationReservation(Topo topo) {
+        topo.setDemandeReservation("Validée");
+        topo.setDispo(false);
+        topo.setReservation(true);
+        topoRepository.save(topo);
+    }
+
+    @Override
+    public void refusReservation(Topo topo) {
+        topo.setDemandeReservation("Refusée");
+        topo.setDispo(true);
+        topo.setReservation(false);
+        topoRepository.save(topo);
+    }
+
+
 }

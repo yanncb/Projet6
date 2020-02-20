@@ -1,6 +1,5 @@
 package com.ocr.amis.escalade.controller;
 
-import com.ocr.amis.escalade.models.Secteur;
 import com.ocr.amis.escalade.models.Topo;
 import com.ocr.amis.escalade.models.Utilisateur;
 import com.ocr.amis.escalade.service.TopoService;
@@ -85,6 +84,32 @@ public class TopoController {
         Topo topoAReserver = topoService.rechercherTopoParId(topo.getId());
         Utilisateur utilisateur = utilisateurService.chargementUtilisateurParPseudo(SecurityContextHolder.getContext().getAuthentication().getName());
         topoService.demandeReservation(topoAReserver, utilisateur);
+        return ("redirect:/liste-de-mes-topos");
+    }
+
+    @GetMapping("/accepter-reservation/{topoId}")
+    public String accepterResa(Model model, @PathVariable Integer topoId){
+        model.addAttribute("topo", topoService.rechercherTopoParId(topoId));
+        return ("accepter-reservation");
+    }
+
+    @PostMapping("/accepter-reservation")
+    public String reservationValidee(@ModelAttribute("topo") Topo topo) {
+        Topo topoAValider = topoService.rechercherTopoParId(topo.getId());
+        topoService.validationReservation(topoAValider);
+        return ("redirect:/liste-de-mes-topos");
+    }
+
+    @GetMapping("/refuser-reservation/{topoId}")
+    public String refuserResa(Model model, @PathVariable Integer topoId){
+        model.addAttribute("topo", topoService.rechercherTopoParId(topoId));
+        return ("/refuser-reservation");
+    }
+
+    @PostMapping("/refuser-reservation")
+    public String reservationRefusee(@ModelAttribute("topo") Topo topo) {
+        Topo topoArefuser = topoService.rechercherTopoParId(topo.getId());
+        topoService.refusReservation(topoArefuser);
         return ("redirect:/liste-de-mes-topos");
     }
 }

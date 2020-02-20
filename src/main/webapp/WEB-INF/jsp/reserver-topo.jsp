@@ -16,12 +16,12 @@
 
         <form:input type="hidden" path="id" ></form:input>
 
-        Utilisateur id : ${utilisateurPossedantTopo.utilisateurId}
-        Nom du topo : ${topo.nom}
-        Date de parution : ${topo.dateParution}
-        Lieu du topo : ${topo.lieu}
-        Description : ${topo.description}
-        Est disponible ? : ${topo.dispo}
+    <p> Utilisateur id : ${utilisateurPossedantTopo.utilisateurId}</p>
+    <p> Nom du topo : ${topo.nom}</p>
+    <p> Date de parution : ${topo.dateParution}</p>
+    <p> Lieu du topo : ${topo.lieu}</p>
+    <p> Description : ${topo.description}</p>
+        <p> Est disponible ? : ${topo.dispo}</p>
 
         <input type="submit" class="btn btn-success" value="Confirmer la réservation"/>
         <a class="btn btn-danger" href="/liste-de-mes-topos">Annuler la demande de réservation</a>
