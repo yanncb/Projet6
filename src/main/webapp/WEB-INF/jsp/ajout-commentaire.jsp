@@ -32,7 +32,6 @@
 
         <form:input name="siteId" type="hidden" path="siteId"></form:input>
 
-
         <form:input type="text" path="texte" class="form-control form-control-sm mb-3"
             placeholder="commentaire"></form:input>
 
@@ -40,7 +39,6 @@
         <input type="submit" class="btn btn-success" value="Ajouter"/>
         <input type="reset" class="btn btn-danger" value="Reset"/>
         <a class="btn btn-danger" href="/site/${site.id}">Cancel</a>
-
 
     </form:form>
 </div>

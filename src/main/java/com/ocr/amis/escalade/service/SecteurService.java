@@ -21,10 +21,25 @@ public interface SecteurService {
      * @return un nouveau secteur
      */
     Secteur initialiser(Site site);
+
+    /**
+     * AjouterSecteur recupere un secteur et l'ajoute en base
+     * @param secteur contient la nouvelle secteur saisie par utilisateur pour le creer en base
+     */
     void ajouterSecteur(Secteur secteur);
+
+    /**
+     * ModifierSecteur recupere un secteur
+     * @param secteur contient les champs du secteur saisie par utilisateur pour le modifié en base
+     */
     void modifierSecteur(Secteur secteur);
+
+    /**
+     * supprimerSecteur recupere un id
+     * @param id permets de supprimer un secteur depuis un id
+     */
     void supprimerSecteur(Integer id);
-    void recherche(Secteur secteur);
+
 }
 
 

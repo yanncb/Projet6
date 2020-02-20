@@ -8,12 +8,9 @@ import java.util.List;
 
 public interface LongueurService {
 
-
-    List<Longueur> rechercherToutesLesLongueurs();
-
     /**
      * Retourne la voie avec l'id <i>id</i> ou null si aucune voie avec l'id en paramètre n'est trouvée
-     * @param id
+     * @param id Id de la voie
      * @return Voie ou null
      */
     Longueur rechercherLongueurParId(Integer id);
@@ -26,8 +23,22 @@ public interface LongueurService {
      */
     Longueur initialiser(Voie voie);
 
+    /**
+     * AjouterLongueur recupere une Longueur et l'ajoute en base
+     * @param longueur contient la nouvelle longueur saisie par utilisateur pour la creer en base
+     */
     void ajouterLongueur(Longueur longueur);
+
+    /**
+     * ModifierLongueur recupere une Longueur et la modifie en base
+     * @param longueur contient les champs de longueur saisie par utilisateur pour la modifié en base
+     */
     void modifierLongueur(Longueur longueur);
+
+    /**
+     * supprimerLongueur recupere un id
+     * @param id permets de supprimer une longueur par depuis un id
+     */
     void supprimerLongueur(Integer id);
-    void recherche(Longueur longueur);
+
 }

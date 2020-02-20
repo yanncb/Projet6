@@ -26,7 +26,7 @@
         <form:input type="text" path="adresse" class="form-control form-control-sm mb-3" placeholder="adresse"></form:input>
 
 
-        <sec:authorize access="hasRole('ADMIN')">
+        <sec:authorize access="hasRole('admin')">
         <form:input type="text" path="tag" class="form-control form-control-sm mb-3" placeholder="tag"></form:input>
         </sec:authorize>
 

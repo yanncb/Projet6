@@ -18,12 +18,6 @@ public class LongueurServiceImpl implements LongueurService {
         @Autowired
         private LongueurRepository longueurRepository;
 
-
-        @Override
-        public List<Longueur> rechercherToutesLesLongueurs() {
-            return longueurRepository.findAll();
-        }
-
         @Override
         public Longueur rechercherLongueurParId(Integer id) {
             Optional<Longueur> optionalLongueur = longueurRepository.findById(id);
@@ -39,11 +33,6 @@ public class LongueurServiceImpl implements LongueurService {
         longueur.setVoie(voie);
         return longueur;
     }
-
-    @Override
-        public void recherche(Longueur longueur) {
-
-        }
 
         public void ajouterLongueur(Longueur longueur) {
             longueurRepository.save(longueur);
