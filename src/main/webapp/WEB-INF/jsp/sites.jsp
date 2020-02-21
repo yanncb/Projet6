@@ -8,8 +8,9 @@
         <h1>Informations sur les sites d'escalade</h1>
     </div>
 
-    <div class="col-sm-8">
+    <div class="col-sm-12">
         <h2>Sites</h2>
+        <div class="table-responsive">
 
         <table class="table table-bordered">
             <tr>
@@ -38,7 +39,9 @@
                 </tr>
             </c:forEach>
         </table>
+        </div>
         <div>
+
             <a class="button" href="ajout-site" class="btn btn-secondary">Ajouter un site </a>
         </div>
 

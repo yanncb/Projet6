@@ -99,15 +99,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf()
                 .disable()
-                .exceptionHandling()
-                .authenticationEntryPoint(new Http403ForbiddenEntryPoint() {
-                })
-                .and()
                 .authenticationProvider(getProvider())
                 .formLogin()
                 .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/").failureUrl("/login?error=loginError")
-                .failureHandler(new SimpleUrlAuthenticationFailureHandler())
                 .and()
                 .logout()
                 .logoutUrl("/logout")

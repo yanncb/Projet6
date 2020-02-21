@@ -21,7 +21,7 @@
                     <th>Reservé par</th>
                     <th>Demande de reservation</th>
                     <th>Modification</th>
-                    <th>Suppresion</th>
+                    <th>Suppression</th>
                 </tr>
 
                 <c:forEach items="${topos}" var="topo">
