@@ -2,12 +2,6 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<html>
-<head>
-    <title>Recherche</title>
-</head>
-<body>
-
 <jsp:include page="header.jsp"/>
 
 <div class="container" style="margin-top:5%">
@@ -68,5 +62,4 @@
 
     </table>
 </div>
-</body>
-</html>
+<jsp:include page="footer.jsp"/>

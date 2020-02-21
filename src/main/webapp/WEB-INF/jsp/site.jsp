@@ -1,14 +1,8 @@
-<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-
-<html>
-<head>
-    <title>Site</title>
-</head>
-<body>
 <jsp:include page="header.jsp"/>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
@@ -85,5 +79,4 @@
 
     </div>
 </div>
-</body>
-</html>
+<jsp:include page="footer.jsp"/>

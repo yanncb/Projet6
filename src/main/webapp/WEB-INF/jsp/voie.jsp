@@ -1,10 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Voies</title>
-</head>
-<body>
+
 <jsp:include page="header.jsp"/>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
@@ -47,5 +43,4 @@
     </div>
 </div>
 
-</body>
-</html>
+<jsp:include page="footer.jsp"/>

@@ -3,11 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
 <jsp:include page="header.jsp"/>
 
 <div class="container">
@@ -39,5 +34,4 @@
     </form:form>
 
 </div>
-</body>
-</html>
+<jsp:include page="footer.jsp"/>

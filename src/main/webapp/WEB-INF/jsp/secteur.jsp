@@ -1,10 +1,6 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<html>
-<head>
-    <title>Secteur</title>
-</head>
-<body>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <jsp:include page="header.jsp"/>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
@@ -46,5 +42,4 @@
 
     </div>
 </div>
-</body>
-</html>
+<jsp:include page="footer.jsp"/>
