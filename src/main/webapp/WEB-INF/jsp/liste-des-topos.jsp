@@ -6,7 +6,7 @@
     <title>Liste de tous les topos disponible</title>
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="header.jsp"/>
 
 <div class="container">
     <div class="jumbotron text-center">
@@ -42,10 +42,11 @@
             <div class="col-1"><a href="modifier-topo/${topo.id}" class="btn btn-success">Modifier</a></div>
             <div class="col-2"><a href="supprimer-topo/${topo.id}" class="btn btn-danger">Supprimer</a></div>
             <c:if test="${topo.dispo.equals(true)}">
-            <div class="col-1"><a href="reserver-topo/${topo.id}" class="btn btn-secondary">Reserver Topo</a></div>
+                <div class="col-1"><a href="reserver-topo/${topo.id}" class="btn btn-secondary">Reserver Topo</a></div>
             </c:if>
             <c:if test="${topo.dispo.equals(false)}">
-                <div class="col-1"><a href="reserver-topo/${topo.id}" class="btn btn-secondary disabled">Reserver Topo</a></div>
+                <div class="col-1"><a href="reserver-topo/${topo.id}" class="btn btn-secondary disabled">Reserver
+                    Topo</a></div>
             </c:if>
         </div>
     </c:forEach>

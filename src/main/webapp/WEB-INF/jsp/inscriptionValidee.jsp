@@ -7,7 +7,7 @@
     <title>Inscription validée</title>
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="header.jsp"/>
 
 <h1>Inscription validée !</h1>
 <div class="container" style="margin-top:30px">

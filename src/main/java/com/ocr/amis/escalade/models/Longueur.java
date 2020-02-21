@@ -16,14 +16,15 @@ public class Longueur {
     @Column(name = "lon_nom")  // permets de mapper avec une colonne de la table qui n'a pas le meme nom.
     private String nom_longueur;
 
-    @Column(name = "lon_cotation")  // permets de mapper avec une colonne de la table qui n'a pas le meme nom.
+    @Column(name = "lon_cotation")
     private String cotation;
 
     @ManyToOne
     @JoinColumn(name = "voi_id", nullable = false)
     private Voie voie;
 
-    public Longueur(){    }
+    public Longueur() {
+    }
 
     public Longueur(String nom_longueur, String cotation, Voie voie) {
         this.nom_longueur = nom_longueur;

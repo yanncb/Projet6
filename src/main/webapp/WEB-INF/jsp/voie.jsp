@@ -5,7 +5,7 @@
     <title>Voies</title>
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="header.jsp"/>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
     <h1>Longueurs presente sur les ${voie.nom_voie} du sites d'escalade : ${voie.secteur.site.nom}</h1>
@@ -13,7 +13,7 @@
 
 
 <div class="container" style="margin-top:30px">
-    <a class="button" href="/secteur/{}"  >Secteur </a><a class="button" href="/sites">Sites </a>
+    <a class="button" href="/secteur/{}">Secteur </a><a class="button" href="/sites">Sites </a>
 
 
     <div class="col-sm-8">
@@ -21,7 +21,7 @@
         <h3>Descriptif des longueurs : </h3>
         <br/>
 
-        <table class="table table-bordered" >
+        <table class="table table-bordered">
             <tr>
                 <th>ID</th>
                 <th>Nom de la longueur</th>
@@ -40,7 +40,8 @@
             </c:forEach>
         </table>
         <div>
-            <a class="button" href="/ajout-longueur?voieId=${voie.id}" class="btn btn-secondary">Ajouter une longueur </a>
+            <a href="/ajout-longueur?voieId=${voie.id}" class="btn btn-secondary">Ajouter une
+                longueur </a>
         </div>
 
     </div>

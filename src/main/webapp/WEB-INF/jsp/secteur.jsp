@@ -1,11 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>Secteur</title>
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="header.jsp"/>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
     <h1>Secteur ${secteur.secteurNom} du site ${secteur.site.nom} </h1>
@@ -18,7 +18,7 @@
         <h2>Voies contenu dans le secteur : </h2>
         <br/>
 
-        <table class="table  table-bordered" >
+        <table class="table  table-bordered">
             <tr>
                 <th>numero voie</th>
                 <th>nombre de longueur</th>
@@ -44,6 +44,7 @@
             <a href="/ajout-voie?secteurId=${secteur.id}">Ajouter une voie </a>
         </div>
 
+    </div>
 </div>
 </body>
 </html>

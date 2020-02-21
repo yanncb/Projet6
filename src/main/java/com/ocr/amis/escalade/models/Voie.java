@@ -44,8 +44,6 @@ public class Voie {
     }
 
 
-
-
     public List<Longueur> getLongueurlist() {
         return longueurlist;
     }

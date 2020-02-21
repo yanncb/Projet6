@@ -19,6 +19,7 @@ public class SiteDAOImpl implements SiteDAO {
 
     /**
      * findSiteByCritere permets de faire une requete JPQL avec les champs remplies uniquement
+     *
      * @param recherche contient les elements de recherches saisi par l'utilisateur
      * @return le resutal de la requete
      */

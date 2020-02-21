@@ -6,7 +6,7 @@
     <title>Sites</title>
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="header.jsp"/>
 
 <div class="container" style="margin-top:30px">
     <div class="jumbotron text-center" style="margin-bottom:0">
@@ -16,7 +16,7 @@
     <div class="col-sm-8">
         <h2>Sites</h2>
 
-        <table class="table table-bordered" >
+        <table class="table table-bordered">
             <tr>
                 <th>ID</th>
                 <th>Nom</th>

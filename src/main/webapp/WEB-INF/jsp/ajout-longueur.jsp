@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -7,7 +7,7 @@
     <title>Ajout Longueur</title>
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="header.jsp"/>
 
 <div class="container">
 
@@ -23,11 +23,13 @@
 
         <h2>Ajout Longueur</h2>
 
-        <form:input type="hidden" path="voie.id"></form:input>
+        <form:input type="hidden" path="voie.id"/>
 
-        <form:input type="text" path="nom_longueur" class="form-control form-control-sm mb-3" placeholder="Nom" autofocus="true"></form:input>
+        <form:input type="text" path="nom_longueur" class="form-control form-control-sm mb-3" placeholder="Nom"
+                    autofocus="true"/>
 
-        <form:input type="text" path="cotation" class="form-control form-control-sm mb-3" placeholder="cotation" ></form:input>
+        <form:input type="text" path="cotation" class="form-control form-control-sm mb-3"
+                    placeholder="cotation"/>
 
 
         <input type="submit" class="btn btn-success" value="Ajouter"/>

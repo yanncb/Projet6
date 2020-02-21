@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
@@ -9,7 +9,7 @@
     <title>Site</title>
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="header.jsp"/>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
     <h1>Informations du site d'escalade "${site.nom}"</h1>
@@ -66,13 +66,14 @@
                         <td><a href="/modifier-commentaire/${commentaire.id}" class="btn btn-success">Modifier</a></td>
                     </sec:authorize>
 
-<%--                <sec:authorize access="hasAnyAuthority('ROLE_ADMIN')">--%>
+                        <%--                <sec:authorize access="hasAnyAuthority('ROLE_ADMIN')">--%>
 
-                    <td><a href="/supprimer-commentaire/${commentaire.id}/${site.id}" class="btn btn-danger">Supprimer</a>
+                    <td><a href="/supprimer-commentaire/${commentaire.id}/${site.id}"
+                           class="btn btn-danger">Supprimer</a>
                     </td>
                 </tr>
 
-<%--                    </sec:authorize>--%>
+                <%--                    </sec:authorize>--%>
             </c:forEach>
 
         </table>

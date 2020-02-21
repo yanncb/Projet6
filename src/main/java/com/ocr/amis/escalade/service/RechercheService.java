@@ -9,6 +9,7 @@ public interface RechercheService {
 
     /**
      * RechercherSite recupere une liste de parametres saisi par l'utilisateur
+     *
      * @param recherche effectue la recherche avec une requete jpql
      * @return une liste de site correspondant a la recherche.
      */

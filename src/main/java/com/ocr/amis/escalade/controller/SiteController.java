@@ -4,7 +4,6 @@ import com.ocr.amis.escalade.controller.post.CommentaireForm;
 import com.ocr.amis.escalade.models.Commentaire;
 import com.ocr.amis.escalade.models.Site;
 import com.ocr.amis.escalade.service.SiteService;
-import com.ocr.amis.escalade.service.UtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

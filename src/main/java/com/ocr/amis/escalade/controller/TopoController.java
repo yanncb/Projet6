@@ -74,7 +74,7 @@ public class TopoController {
     }
 
     @GetMapping("/reserver-topo/{topoId}")
-    public String demandeReservation(Model model, @PathVariable Integer topoId){
+    public String demandeReservation(Model model, @PathVariable Integer topoId) {
         model.addAttribute("topo", topoService.rechercherTopoParId(topoId));
         return ("/reserver-topo");
     }
@@ -88,7 +88,7 @@ public class TopoController {
     }
 
     @GetMapping("/accepter-reservation/{topoId}")
-    public String accepterResa(Model model, @PathVariable Integer topoId){
+    public String accepterResa(Model model, @PathVariable Integer topoId) {
         model.addAttribute("topo", topoService.rechercherTopoParId(topoId));
         return ("accepter-reservation");
     }
@@ -101,7 +101,7 @@ public class TopoController {
     }
 
     @GetMapping("/refuser-reservation/{topoId}")
-    public String refuserResa(Model model, @PathVariable Integer topoId){
+    public String refuserResa(Model model, @PathVariable Integer topoId) {
         model.addAttribute("topo", topoService.rechercherTopoParId(topoId));
         return ("/refuser-reservation");
     }
@@ -112,4 +112,12 @@ public class TopoController {
         topoService.refusReservation(topoArefuser);
         return ("redirect:/liste-de-mes-topos");
     }
+
+    @GetMapping("/infosUtilisateurReservantTopo/{utilisateurId}")
+    public String infoUtilisateur(Model model, @PathVariable String utilisateurId) {
+        model.addAttribute("utilisateur", utilisateurService.chargementUtilisateurParPseudo(utilisateurId));
+        return ("/infosUtilisateurReservantTopo");
+    }
+
+
 }

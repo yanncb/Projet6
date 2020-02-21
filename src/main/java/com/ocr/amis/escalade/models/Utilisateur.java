@@ -8,7 +8,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.util.*;
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "t_utilisateur")
@@ -60,7 +62,7 @@ public class Utilisateur implements Serializable, UserDetails {
     @OneToMany(mappedBy = "utilisateurReserveTopo")
     private Set<Topo> topoListReserves;
 
-    @ManyToMany(mappedBy = "utilisateurs", cascade=CascadeType.ALL )
+    @ManyToMany(mappedBy = "utilisateurs", cascade = CascadeType.ALL)
     private List<Role> roles;
 
     public Set<Topo> getTopoListPossedeParUtilisateur() {
