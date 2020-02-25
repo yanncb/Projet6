@@ -33,7 +33,7 @@
                 <th><a>${voie.type_roche}</a></th>
                 <sec:authorize access="hasRole('MEMBRE')">
 
-                    <th><a href="/modifier-voie/${voie.id}/${secteur.id}" class="btn btn-success">Modifier</a></th>
+                    <th><a href="/modifier-voie/${voie.id}" class="btn btn-success">Modifier</a></th>
                     <th><a href="/supprimer-voie/${voie.id}/${secteur.id}" class="btn btn-danger">Supprimer</a></th>
                     </tr>
                 </sec:authorize>

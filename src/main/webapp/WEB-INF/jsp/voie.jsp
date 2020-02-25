@@ -31,7 +31,7 @@
                     <th>${longueur.cotation}</th>
                     <sec:authorize access="hasRole('MEMBRE')">
                     <th><a href="/modifier-longueur/${longueur.id}" class="btn btn-success">Modifier</a></th>
-                    <th><a href="/supprimer-longueur/${longueur.id}" class="btn btn-danger">Supprimer</a></th>
+                    <th><a href="/supprimer-longueur/${longueur.id}/${voie.id}" class="btn btn-danger">Supprimer</a></th>
                 </tr>
                     </sec:authorize>
             </c:forEach>
