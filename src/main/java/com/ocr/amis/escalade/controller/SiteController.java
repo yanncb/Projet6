@@ -3,8 +3,8 @@ package com.ocr.amis.escalade.controller;
 import com.ocr.amis.escalade.controller.post.CommentaireForm;
 import com.ocr.amis.escalade.models.Commentaire;
 import com.ocr.amis.escalade.models.Site;
+import com.ocr.amis.escalade.models.Utilisateur;
 import com.ocr.amis.escalade.service.SiteService;
-import com.ocr.amis.escalade.service.UtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -30,21 +30,21 @@ public class SiteController {
         return "/site";
     }
 
-    // permet d'afficher mon formulaire qui me permettra par la suite d'ajouter un site
     @GetMapping("/ajout-site")
     public String ajouterSite(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        model.addAttribute("utilisateur", authentication);
         model.addAttribute("site", new Site());
         return "/ajout-site";
     }
 
-    // permet de recuperer le formulaire d'ajout de liste et de rediriger sur la page pour affichage.
     @PostMapping("/ajout-site")
     public String ajouterSite(@ModelAttribute("site") Site site) {
         siteService.ajouterSite(site);
         return "redirect:/sites";
     }
 
-    @GetMapping("/modifier-site/{id}/{siteId}")
+    @GetMapping("/modifier-site/{id}")
     public String recupererSite(Model model, @PathVariable Integer id) {
         model.addAttribute("site", siteService.rechercherSiteParId(id));
         return "/modifier-site";
@@ -66,7 +66,8 @@ public class SiteController {
     @GetMapping("/ajout-commentaire")
     public String ajoutCommentaire(Model model, @RequestParam Integer siteId) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        model.addAttribute("utilisateur", authentication);
+        Utilisateur utilisateur = (Utilisateur) authentication.getPrincipal();
+        model.addAttribute("utilisateur", utilisateur);
         CommentaireForm commentaireForm = new CommentaireForm();
         commentaireForm.setSiteId(siteId);
         model.addAttribute("commentaire", commentaireForm);
@@ -78,7 +79,8 @@ public class SiteController {
     @PostMapping("/ajout-commentaire")
     public String ajouterCommentaire(Model model, @ModelAttribute("commentaire") CommentaireForm commentaireForm) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Commentaire commentaire = siteService.ajouterCommentaire(commentaireForm.getSiteId(), commentaireForm.getTexte(), authentication.getName());
+        Utilisateur utilisateur = (Utilisateur) authentication.getPrincipal();
+        Commentaire commentaire = siteService.ajouterCommentaire(commentaireForm.getSiteId(), commentaireForm.getTexte(), utilisateur.getPseudo());
         model.addAttribute("commentaire", commentaire);
         return "redirect:/site/" + commentaire.getSite().getId();
     }

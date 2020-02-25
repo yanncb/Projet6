@@ -1,13 +1,7 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<!DOCTYPE HTML>
-<html>
-<head>
-    <meta charset="UTF-8"/>
-    <title>Inscription validée</title>
-</head>
-<body>
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="header.jsp"/>
 
 <h1>Inscription validée !</h1>
 <div class="container" style="margin-top:30px">
@@ -18,6 +12,4 @@
     </div>
 </div>
 
-</body>
-
-</html>
+<jsp:include page="footer.jsp"/>

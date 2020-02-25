@@ -1,13 +1,8 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<html>
-<head>
-    <title>Ajout secteur</title>
-</head>
-<body>
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="header.jsp"/>
 
 <div class="container">
 
@@ -20,9 +15,10 @@
         <p>Adresse : ${secteur.site.adresse}</p>
         <p>Pays : ${secteur.site.pays}</p>
 
-        <form:input type="hidden" path="site.id"></form:input>
+        <form:input type="hidden" path="site.id"/>
 
-        <form:input type="text" path="secteurNom" class="form-control form-control-sm mb-3" placeholder="Nom" autofocus="true"></form:input>
+        <form:input type="text" path="secteurNom" class="form-control form-control-sm mb-3" placeholder="Nom"
+                    autofocus="true"/>
 
 
         <input type="submit" class="btn btn-success" value="Ajouter"/>
@@ -32,5 +28,4 @@
 
     </form:form>
 </div>
-</body>
-</html>
+<jsp:include page="footer.jsp"/>

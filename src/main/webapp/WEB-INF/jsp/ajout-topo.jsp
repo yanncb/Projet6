@@ -1,13 +1,8 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<html>
-<head>
-    <title>Ajout TOPO</title>
-</head>
-<body>
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="header.jsp"/>
 
 <div class="container">
 
@@ -16,25 +11,25 @@
 
 
         <form:input type="text" path="nom" class="form-control form-control-sm mb-3" placeholder="Nom"
-                    autofocus="true"></form:input>
+                    autofocus="true"/>
 
         <form:input type="text" path="description" class="form-control form-control-sm mb-3"
-                    placeholder="description"></form:input>
+                    placeholder="description"/>
 
         <form:input type="text" path="lieu" class="form-control form-control-sm mb-3"
-                    placeholder="Adresse"></form:input>
+                    placeholder="Adresse"/>
 
         <form:input type="date" path="dateParution" class="form-control form-control-sm mb-3"
-                    placeholder="Date de parution"></form:input>
+                    placeholder="Date de parution"/>
 
         <form:select type="number" class="form-control" path="dispo">
             <option>true</option>
             <option>false</option>
         </form:select><br/>
-<%--            <option value="0">Non Disponible</option>--%>
-<%--            <option value="1">En attente de validation</option>--%>
-<%--            <option value="2">Disponible</option>--%>
-<%--            <option value="3">Non reservable</option>--%>
+        <%--            <option value="0">Non Disponible</option>--%>
+        <%--            <option value="1">En attente de validation</option>--%>
+        <%--            <option value="2">Disponible</option>--%>
+        <%--            <option value="3">Non reservable</option>--%>
 
 
         <input type="submit" class="btn btn-success" value="Ajouter"/>
@@ -44,5 +39,4 @@
 
     </form:form>
 </div>
-</body>
-</html>
+<jsp:include page="footer.jsp"/>

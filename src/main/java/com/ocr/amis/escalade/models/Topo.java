@@ -30,6 +30,9 @@ public class Topo {
     @Column(name = "top_confirmation_reservation")
     private boolean reservation;
 
+    @Column(name = "top_demande_reservation")
+    private String demandeReservation;
+
     @ManyToOne
     @JoinColumn(name = "utilisateur_createur_id")
     private Utilisateur utilisateurPossedantTopo;
@@ -37,28 +40,6 @@ public class Topo {
     @ManyToOne
     @JoinColumn(name = "utilisateur_emprunteur_id")
     private Utilisateur utilisateurReserveTopo;
-
-    public Topo() {
-    }
-
-    public Topo(String dateParution, String nom, String description, String lieu, boolean dispo, boolean reservation, Utilisateur utilisateurPossedantTopo, Utilisateur utilisateurReserveTopo) {
-        this.dateParution = dateParution;
-        this.nom = nom;
-        this.description = description;
-        this.lieu = lieu;
-        this.dispo = dispo;
-        this.reservation = reservation;
-        this.utilisateurPossedantTopo = utilisateurPossedantTopo;
-        this.utilisateurReserveTopo = utilisateurReserveTopo;
-    }
-
-    public boolean isReservation() {
-        return reservation;
-    }
-
-    public void setReservation(boolean reservation) {
-        this.reservation = reservation;
-    }
 
     public int getId() {
         return id;
@@ -108,6 +89,22 @@ public class Topo {
         this.dispo = dispo;
     }
 
+    public boolean isReservation() {
+        return reservation;
+    }
+
+    public void setReservation(boolean reservation) {
+        this.reservation = reservation;
+    }
+
+    public String getDemandeReservation() {
+        return demandeReservation;
+    }
+
+    public void setDemandeReservation(String demandeReservation) {
+        this.demandeReservation = demandeReservation;
+    }
+
     public Utilisateur getUtilisateurPossedantTopo() {
         return utilisateurPossedantTopo;
     }
@@ -134,8 +131,7 @@ public class Topo {
                 ", lieu='" + lieu + '\'' +
                 ", dispo=" + dispo +
                 ", reservation=" + reservation +
-                ", utilisateurPossedantTopo=" + utilisateurPossedantTopo +
-                ", utilisateurReserveTopo=" + utilisateurReserveTopo +
+                ", demandeReservation='" + demandeReservation + '\'' +
                 '}';
     }
 }

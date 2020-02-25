@@ -1,15 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-
-<html>
-<head>
-    <title>Site</title>
-</head>
-<body>
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="header.jsp"/>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
     <h1>Informations du site d'escalade "${site.nom}"</h1>
@@ -27,16 +21,18 @@
             <tr>
                 <th>Nom du secteur</th>
                 <th>Modification</th>
-                <th>Suppresion</th>
+                <th>Suppression</th>
             </tr>
 
             <c:forEach items="${site.secteurs}" var="secteur">
                 <tr>
                     <th><a href="/secteur/${secteur.id}">${secteur.secteurNom}</a></th>
+                    <sec:authorize access="hasRole('MEMBRE')">
+
                     <th><a href="/modifier-secteur/${secteur.id}" class="btn btn-success">Modifier</a></th>
-                    <th><a href="/supprimer-secteur/${secteur.id}/${site.id}" class="btn btn-danger">Supprimer</a>
-                    </th>
+                    <th><a href="/supprimer-secteur/${secteur.id}/${site.id}" class="btn btn-danger">Supprimer</a></th>
                 </tr>
+                    </sec:authorize>
             </c:forEach>
         </table>
 
@@ -52,27 +48,23 @@
                 <th>Date</th>
                 <th>Commentaire</th>
                 <th>Modification</th>
-                <th>Suppresion</th>
+                <th>Suppression</th>
             </tr>
 
             <c:forEach items="${site.commentaires}" var="commentaire">
                 <tr>
-                    <td>${commentaire.utilisateur.nom}</td>
+                    <td>${commentaire.utilisateur.pseudo}</td>
                     <td>${commentaire.date}</td>
                     <td>${commentaire.texte}</td>
 
-                    <sec:authorize access="hasRole('ADMIN')">
+                    <sec:authorize access="hasRole('MEMBRE')">
 
                         <td><a href="/modifier-commentaire/${commentaire.id}" class="btn btn-success">Modifier</a></td>
+                        <td><a href="/supprimer-commentaire/${commentaire.id}/${site.id}"
+                               class="btn btn-danger">Supprimer</a>
+                        </td>
                     </sec:authorize>
-
-<%--                <sec:authorize access="hasAnyAuthority('ROLE_ADMIN')">--%>
-
-                    <td><a href="/supprimer-commentaire/${commentaire.id}/${site.id}" class="btn btn-danger">Supprimer</a>
-                    </td>
                 </tr>
-
-<%--                    </sec:authorize>--%>
             </c:forEach>
 
         </table>
@@ -84,5 +76,4 @@
 
     </div>
 </div>
-</body>
-</html>
+<jsp:include page="footer.jsp"/>

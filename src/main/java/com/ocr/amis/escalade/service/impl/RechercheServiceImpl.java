@@ -22,10 +22,7 @@ public class RechercheServiceImpl implements RechercheService {
 
     @Override
     public List<Site> rechercherSites(Recherche recherche) {
-
         List<Site> maListe = siteDAO.findSiteByCritere(recherche);
-        //List<Site> maListe = siteRepository.findAll();
-
         return maListe;
     }
 

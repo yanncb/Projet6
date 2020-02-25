@@ -31,11 +31,6 @@ public class SecteurServiceImpl implements SecteurService {
         return secteur;
     }
 
-    @Override
-    public void recherche(Secteur secteur) {
-
-    }
-
     public void ajouterSecteur(Secteur secteur) {
         secteurRepository.save(secteur);
     }

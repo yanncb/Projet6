@@ -7,7 +7,6 @@ import com.ocr.amis.escalade.service.VoieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -15,12 +14,6 @@ public class VoieServiceImpl implements VoieService {
 
     @Autowired
     private VoieRepository voieRepository;
-
-
-    @Override
-    public List<Voie> rechercherToutesLesvoies() {
-        return voieRepository.findAll();
-    }
 
     @Override
     public Voie rechercherVoieParId(Integer id) {
@@ -37,14 +30,6 @@ public class VoieServiceImpl implements VoieService {
         voie.setSecteur(secteur);
         return voie;
     }
-
-//    @Override
-//    public List<Voie> recherche(String nomVoie, String longeur, String difficulte) {
-//        // TODO implimenter la méthode et supprimer la valeur en dur
-//        List<Voie> voies = new ArrayList<>();
-//
-//        return voies;
-//    }
 
     public void ajouterVoie(Voie voie) {
 

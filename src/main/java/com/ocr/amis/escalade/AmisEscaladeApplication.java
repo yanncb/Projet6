@@ -6,14 +6,14 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class AmisEscaladeApplication  extends SpringBootServletInitializer {
+public class AmisEscaladeApplication extends SpringBootServletInitializer {
 
-	public static void main(String[] args) {
-		SpringApplication.run(AmisEscaladeApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(AmisEscaladeApplication.class, args);
+    }
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(AmisEscaladeApplication.class);
-	}
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(AmisEscaladeApplication.class);
+    }
 }

@@ -1,32 +1,21 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 
-<!DOCTYPE HTML>
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <title>Accueil</title>
-</head>
-<body>
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="header.jsp"/>
 
 <div class="container" style="margin-top:30px">
 
     <div class="col-sm-8">
-<h5>Montagne rouge, Dec 7, 2017</h5>
-<p> text..</p>
-<p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-    ullamco.</p>
-<br>
-<h2>TITLE HEADING</h2>
-<h5>Title description, Sep 2, 2017</h5>
-<p>Some text..</p>
-<p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-    ullamco.</p>
-</div>
+        <h5>Bienvenue sur le site des amis de l'escalade !</h5>
+        <p>Nous vous souhaitons la bienvenue sur le site des amis de l'escalde.</p>
+        <p>Grace à ce site vous pouvez :</p>
+        <ul>
+            <li><a href="/sites">Consulter les informations sur les sites d'escalade</a></li>
+            <li><a href="/recherche"> Rechercher des sites d'esaclade</a></li>
+            <li><a href="/liste-des-topos"> Echanger des topos avec notre communauté</a></li>
+        </ul>
+
+        <p>Pour profiter au maximum de notre communauté, n'hésitez pas à <a href="/inscription">vous inscrire</a></p>
+    </div>
 </div>
 
-</body>
-
-</html>
+<jsp:include page="footer.jsp"/>

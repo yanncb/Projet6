@@ -8,7 +8,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.util.*;
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "t_utilisateur")
@@ -51,16 +53,17 @@ public class Utilisateur implements Serializable, UserDetails {
     @Column(name = "utill_mot_de_passe")
     private String motDePasse;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "utilisateur")
+    @OneToMany(mappedBy = "utilisateur")
     private List<Commentaire> commentairesList;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "utilisateurPossedantTopo")
+    @OneToMany(mappedBy = "utilisateurPossedantTopo")
     private Set<Topo> topoListPossedeParUtilisateur;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "utilisateurReserveTopo")
+    @OneToMany(mappedBy = "utilisateurReserveTopo")
     private Set<Topo> topoListReserves;
 
-    @ManyToMany(mappedBy = "utilisateurs", cascade=CascadeType.ALL )
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "t_role_utilisateur", joinColumns = @JoinColumn(name = "utilisateur_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<Role> roles;
 
     public Set<Topo> getTopoListPossedeParUtilisateur() {
@@ -161,10 +164,7 @@ public class Utilisateur implements Serializable, UserDetails {
                 ", mail='" + mail + '\'' +
                 ", pseudo='" + pseudo + '\'' +
                 ", motDePasse='" + motDePasse + '\'' +
-                ", commentairesList=" + commentairesList +
-                ", topoListPossedeParUtilisateur=" + topoListPossedeParUtilisateur +
-                ", topoListReserves=" + topoListReserves +
-                ", roles=" + roles +
+//                ", roles=" + roles +
                 '}';
     }
 

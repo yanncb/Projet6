@@ -17,6 +17,12 @@ public class SiteDAOImpl implements SiteDAO {
     @PersistenceContext
     EntityManager entityManager;
 
+    /**
+     * findSiteByCritere permets de faire une requete JPQL avec les champs remplies uniquement
+     *
+     * @param recherche contient les elements de recherches saisi par l'utilisateur
+     * @return le resutal de la requete
+     */
     public List<Site> findSiteByCritere(Recherche recherche) {
 
         // Etape 1 : Construction dynamique de la requête
@@ -56,25 +62,3 @@ public class SiteDAOImpl implements SiteDAO {
 
 }
 
-//HQL
-//        String hql = "SELECT si";
-//        hql += " FROM Site si";
-//        hql += " JOIN si.secteurs se";
-//        hql += " JOIN se.voie v";
-//        hql += " JOIN v.longueurs l";
-//        hql += " WHERE 1=1";
-//        if (recherche.getPays() != null) {
-//            hql += " AND si.pays = " + recherche.getPays();
-//        }
-//        if (recherche.getNbSecteurs() != 0) {
-//            hql += " AND size(si.secteurs) = :nbSecteurs";
-//        }
-//        if (recherche.getCotation() != null) {
-//            hql += " AND l.cotation = " + recherche.getCotation();
-//        }
-//        Query query = entityManager.createQuery(hql);
-//        if (recherche.getNbSecteurs() != 0) {
-//            query.setParameter("nbSecteurs", recherche.getNbSecteurs());
-//        }
-//        return query.getResultList();
-//    }

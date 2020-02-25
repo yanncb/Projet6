@@ -45,6 +45,7 @@ public class SecteurController {
     public String recupererSecteur(Model model, @PathVariable Integer id) {
         model.addAttribute("secteur", secteurService.rechercherSecteurParId(id));
         return "modifier-secteur";
+
     }
 
     @PostMapping("/modifier-secteur")

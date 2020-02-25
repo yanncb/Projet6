@@ -1,10 +1,10 @@
-<html lang="fr">
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<html>
 <head>
-    <title>Les amis de l'escalade !! </title>
+    <title>Les amis de l'escalade !!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -21,14 +21,14 @@
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"/>
     </button>
     <div class="container">
 
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Acceuil</a>
+                    <a class="nav-link" href="/">Accueil</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/sites">Sites</a>
