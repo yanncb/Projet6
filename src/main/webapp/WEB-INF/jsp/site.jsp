@@ -21,16 +21,18 @@
             <tr>
                 <th>Nom du secteur</th>
                 <th>Modification</th>
-                <th>Suppresion</th>
+                <th>Suppression</th>
             </tr>
 
             <c:forEach items="${site.secteurs}" var="secteur">
                 <tr>
                     <th><a href="/secteur/${secteur.id}">${secteur.secteurNom}</a></th>
+                    <sec:authorize access="hasRole('MEMBRE')">
+
                     <th><a href="/modifier-secteur/${secteur.id}" class="btn btn-success">Modifier</a></th>
-                    <th><a href="/supprimer-secteur/${secteur.id}/${site.id}" class="btn btn-danger">Supprimer</a>
-                    </th>
+                    <th><a href="/supprimer-secteur/${secteur.id}/${site.id}" class="btn btn-danger">Supprimer</a></th>
                 </tr>
+                    </sec:authorize>
             </c:forEach>
         </table>
 
@@ -46,28 +48,23 @@
                 <th>Date</th>
                 <th>Commentaire</th>
                 <th>Modification</th>
-                <th>Suppresion</th>
+                <th>Suppression</th>
             </tr>
 
             <c:forEach items="${site.commentaires}" var="commentaire">
                 <tr>
-                <td>${commentaire.utilisateur.nom}</td>
-                <td>${commentaire.date}</td>
-                <td>${commentaire.texte}</td>
+                    <td>${commentaire.utilisateur.pseudo}</td>
+                    <td>${commentaire.date}</td>
+                    <td>${commentaire.texte}</td>
 
-                <sec:authorize access="hasRole('MEMBRE')">
+                    <sec:authorize access="hasRole('MEMBRE')">
 
-                    <td><a href="/modifier-commentaire/${commentaire.id}" class="btn btn-success">Modifier</a></td>
-                </sec:authorize>
-
-                <sec:authorize access="hasRole('MEMBRE')">
-                    <td><a href="/supprimer-commentaire/${commentaire.id}/${site.id}"
-                           class="btn btn-danger">Supprimer</a>
-                    </td>
-
-                </sec:authorize>
+                        <td><a href="/modifier-commentaire/${commentaire.id}" class="btn btn-success">Modifier</a></td>
+                        <td><a href="/supprimer-commentaire/${commentaire.id}/${site.id}"
+                               class="btn btn-danger">Supprimer</a>
+                        </td>
+                    </sec:authorize>
                 </tr>
-
             </c:forEach>
 
         </table>

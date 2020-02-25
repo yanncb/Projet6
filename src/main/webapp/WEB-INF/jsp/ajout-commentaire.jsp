@@ -23,11 +23,12 @@
 
         <h2>Ajout Commentaire</h2>
 
-        ${utilisateur.name} <br/>
+        ${utilisateur.pseudo} <br/>
 
         <form:input name="commentaireId" type="hidden" path="id"/>
 
         <form:input name="siteId" type="hidden" path="siteId"/>
+
 
         <form:input type="text" path="texte" class="form-control form-control-sm mb-3"
                     placeholder="commentaire"/>

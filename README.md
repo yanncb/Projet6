@@ -1,5 +1,4 @@
 # Titre du projet
-_(juste en dessous des badges sympatiques à placer)_
 
 ![forthebadge](https://forthebadge.com/images/badges/gluten-free.svg)
 
@@ -33,8 +32,16 @@ Renseigner le mot de passe de l'utilisateur postgres (dans mon cas, c'est admin)
 
 Ensuite Installer le serveur TomCat, un tutoriel est disponible : http://objis.com/tutoriel-tomcat-n1-installation-tomcat-8/
 
+Configuration : Se rendre dans le fichier conf/tomcat-users.xml, ajouter 
+
+  <role rolename="manager-gui"/>
+  <role rolename="admin"/>
+  <user username="admin" password="admin" roles="manager-gui,admin"/>
+  Pour creer un role et pouvoir acceder à l'interface manager.
+  
 Déployer le fichier war
 
+Se rendre sur l'URL : http://localhost:8080/manager
 Il suffit de spécifier l’emplacement de votre fichier war de manière à l’uploader sur votre serveur tomcat qui le déploiera automatiquement. Depuis le manager tomcat, dans la zone de déploiement « WAR file to deploy » comme ci-dessous :
 
 tomcat-manager2
@@ -51,7 +58,7 @@ Une autre manière de faire est de déposer le fichier war directement dans le d
 
 ## Démarrage
 
-Allez sur l'URL : http://localhost:8080/
+Allez sur l'URL : http://localhost:8080/amis-escalade-0.0.1-SNAPSHOT/
 
 ## Fabriqué avec
 

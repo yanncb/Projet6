@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <jsp:include page="header.jsp"/>
 
@@ -20,7 +21,7 @@
         <div class="col-sm">Reservé</div>
         <div class="col-sm">Demande de reservation</div>
         <div class="col-sm">Modification</div>
-        <div class="col-sm">Suppresion</div>
+        <div class="col-sm">Suppression</div>
         <div class="col-sm">Reservation topo</div>
 
     </div>
@@ -34,8 +35,10 @@
             <div class="col-sm">${topo.utilisateurReserveTopo.pseudo}</div>
             <div class="col-sm">${topo.reservation}</div>
             <div class="col-sm">${topo.demandeReservation}</div>
+            <sec:authorize access="hasRole('MEMBRE')">
             <div class="col-sm"><a href="modifier-topo/${topo.id}" class="btn btn-success">Modifier</a></div>
             <div class="col-sm"><a href="supprimer-topo/${topo.id}" class="btn btn-danger">Supprimer</a></div>
+            </sec:authorize>
             <c:if test="${topo.dispo.equals(true)}">
                 <div class="col-sm"><a href="reserver-topo/${topo.id}" class="btn btn-secondary">Reserver Topo</a></div>
             </c:if>

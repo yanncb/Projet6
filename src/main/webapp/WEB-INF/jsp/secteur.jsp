@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <jsp:include page="header.jsp"/>
 
@@ -21,18 +22,21 @@
                 <th>altitude</th>
                 <th>type_roche</th>
                 <th>Modification</th>
-                <th>Suppresion</th>
+                <th>Suppression</th>
             </tr>
 
             <c:forEach items="${voies}" var="voie">
                 <tr>
-                    <th><a href="/voie/${voie.id}">${voie.nom_voie}</a></th>
-                    <th><a>${voie.nbLongueur()}</a></th>
-                    <th><a>${voie.altitude}</a></th>
-                    <th><a>${voie.type_roche}</a></th>
+                <th><a href="/voie/${voie.id}">${voie.nom_voie}</a></th>
+                <th><a>${voie.nbLongueur()}</a></th>
+                <th><a>${voie.altitude}</a></th>
+                <th><a>${voie.type_roche}</a></th>
+                <sec:authorize access="hasRole('MEMBRE')">
+
                     <th><a href="/modifier-voie/${voie.id}/${secteur.id}" class="btn btn-success">Modifier</a></th>
                     <th><a href="/supprimer-voie/${voie.id}/${secteur.id}" class="btn btn-danger">Supprimer</a></th>
-                </tr>
+                    </tr>
+                </sec:authorize>
             </c:forEach>
 
         </table>

@@ -23,7 +23,7 @@
                     <th>Tag</th>
                     <th>Nombre de voie</th>
                     <th>Modification</th>
-                    <th>Suppresion</th>
+                    <th>Suppression</th>
                 </tr>
 
                 <c:forEach items="${sites}" var="site">
@@ -35,9 +35,8 @@
                         <th>${site.nbSecteurs()}</th>
                         <th>${site.tag}</th>
                         <th>${site.nbVoies()}</th>
-                        <th><a href="modifier-site/${site.id}" class="btn btn-success">Modifier</a></th>
-
                         <sec:authorize access="hasAnyRole('MEMBRE')">
+                            <th><a href="modifier-site/${site.id}" class="btn btn-success">Modifier</a></th>
                             <th><a href="supprimer-site/${site.id}" class="btn btn-danger">Supprimer</a></th>
                         </sec:authorize>
 
