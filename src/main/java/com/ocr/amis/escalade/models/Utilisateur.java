@@ -62,7 +62,8 @@ public class Utilisateur implements Serializable, UserDetails {
     @OneToMany(mappedBy = "utilisateurReserveTopo")
     private Set<Topo> topoListReserves;
 
-    @ManyToMany(mappedBy = "utilisateurs", cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "t_role_utilisateur", joinColumns = @JoinColumn(name = "utilisateur_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<Role> roles;
 
     public Set<Topo> getTopoListPossedeParUtilisateur() {
@@ -163,7 +164,7 @@ public class Utilisateur implements Serializable, UserDetails {
                 ", mail='" + mail + '\'' +
                 ", pseudo='" + pseudo + '\'' +
                 ", motDePasse='" + motDePasse + '\'' +
-                ", roles=" + roles +
+//                ", roles=" + roles +
                 '}';
     }
 

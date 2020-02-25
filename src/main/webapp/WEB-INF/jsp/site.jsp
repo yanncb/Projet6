@@ -51,23 +51,23 @@
 
             <c:forEach items="${site.commentaires}" var="commentaire">
                 <tr>
-                    <td>${commentaire.utilisateur.nom}</td>
-                    <td>${commentaire.date}</td>
-                    <td>${commentaire.texte}</td>
+                <td>${commentaire.utilisateur.nom}</td>
+                <td>${commentaire.date}</td>
+                <td>${commentaire.texte}</td>
 
-                    <sec:authorize access="hasRole('ADMIN')">
+                <sec:authorize access="hasRole('MEMBRE')">
 
-                        <td><a href="/modifier-commentaire/${commentaire.id}" class="btn btn-success">Modifier</a></td>
-                    </sec:authorize>
+                    <td><a href="/modifier-commentaire/${commentaire.id}" class="btn btn-success">Modifier</a></td>
+                </sec:authorize>
 
-                        <%--                <sec:authorize access="hasAnyAuthority('ROLE_ADMIN')">--%>
-
+                <sec:authorize access="hasRole('MEMBRE')">
                     <td><a href="/supprimer-commentaire/${commentaire.id}/${site.id}"
                            class="btn btn-danger">Supprimer</a>
                     </td>
+
+                </sec:authorize>
                 </tr>
 
-                <%--                    </sec:authorize>--%>
             </c:forEach>
 
         </table>

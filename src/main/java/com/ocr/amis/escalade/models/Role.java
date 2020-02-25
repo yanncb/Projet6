@@ -18,16 +18,12 @@ public class Role implements GrantedAuthority {
     @Column(name = "rol_nom")
     private String rolNom;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "t_role_utilisateur", joinColumns = @JoinColumn(name = "utilisateur_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Utilisateur> utilisateurs;
 
     public Role() {
     }
 
     public Role(String rolNom, Set<Utilisateur> utilisateurs) {
         this.rolNom = rolNom;
-        this.utilisateurs = utilisateurs;
     }
 
     public int getId() {
@@ -46,20 +42,12 @@ public class Role implements GrantedAuthority {
         this.rolNom = rolNom;
     }
 
-    public Set<Utilisateur> getUtilisateurs() {
-        return utilisateurs;
-    }
-
-    public void setUtilisateurs(Set<Utilisateur> utilisateurs) {
-        this.utilisateurs = utilisateurs;
-    }
 
     @Override
     public String toString() {
         return "Role{" +
                 "id=" + id +
                 ", rol_longueur='" + rolNom + '\'' +
-                ", utilisateurs=" + utilisateurs +
                 '}';
     }
 
