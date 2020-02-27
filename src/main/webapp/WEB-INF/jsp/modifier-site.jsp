@@ -21,10 +21,7 @@
         <form:input type="text" path="adresse" class="form-control form-control-sm mb-3"
                     placeholder="adresse"/>
 
-
-        <sec:authorize access="hasRole('admin')">
             <form:input type="text" path="tag" class="form-control form-control-sm mb-3" placeholder="tag"/>
-        </sec:authorize>
 
         <input type="submit" class="btn btn-success" value="Modifier"/>
         <input type="reset" class="btn btn-danger" value="Reset"/>
