@@ -26,7 +26,8 @@ public class TopoController {
 
     @GetMapping("/liste-de-mes-topos")
     public String mesTopos(Model model, Authentication authentication) {
-        model.addAttribute("topos", topoService.rechercherTousLesToposPourUtilisateur(authentication.getName()));
+        Utilisateur utilisateur = (Utilisateur) authentication.getPrincipal();
+        model.addAttribute("topos", topoService.rechercherTousLesToposPourUtilisateur(utilisateur.getPseudo()));
         return "/liste-de-mes-topos";
     }
 
@@ -46,7 +47,8 @@ public class TopoController {
     @PostMapping("/ajout-topo")
     public String ajoutTopo(@ModelAttribute("topo") Topo topo) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        topo.setUtilisateurPossedantTopo(utilisateurService.chargementUtilisateurParPseudo(authentication.getName()));
+        Utilisateur utilisateur = (Utilisateur) authentication.getPrincipal();
+        topo.setUtilisateurPossedantTopo(utilisateur);
         topoService.ajouterTopo(topo);
         return "redirect:/liste-de-mes-topos";
     }
@@ -62,7 +64,8 @@ public class TopoController {
     @PostMapping("/modifier-topo")
     public String modifierTopo(@ModelAttribute("topo") Topo topo) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        topo.setUtilisateurPossedantTopo(utilisateurService.chargementUtilisateurParPseudo(authentication.getName()));
+        Utilisateur utilisateur = (Utilisateur) authentication.getPrincipal();
+        topo.setUtilisateurPossedantTopo(utilisateurService.chargementUtilisateurParPseudo(utilisateur.getPseudo()));
         topoService.modifierTopo(topo);
         return "redirect:/liste-de-mes-topos";
     }
