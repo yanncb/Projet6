@@ -16,13 +16,11 @@ public class RechercheController {
     @Autowired
     private RechercheService rechercheService;
 
-
     @GetMapping("/recherche")
     public String recherche(Model model) {
         model.addAttribute("recherche", new Recherche());
         return "/recherche";
     }
-
 
     @PostMapping("/recherche")
     public String recherche(Model model, @ModelAttribute("recherche") Recherche recherche) {

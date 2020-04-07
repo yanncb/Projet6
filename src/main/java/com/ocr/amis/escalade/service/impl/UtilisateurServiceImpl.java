@@ -56,7 +56,6 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         return utilisateur;
     }
 
-
     @Override
     public void ajouterUtilisateur(Utilisateur utilisateur) {
         String password = utilisateur.getMotDePasse();
@@ -67,12 +66,4 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         utilisateurRepository.save(utilisateur);
     }
 
-    //    @Override
-//    public Utilisateur rechercherUtilisateurParId(Integer id) {
-//        Optional<Utilisateur> optionalUtilisateur = utilisateurRepository.findById(id);
-//        if (optionalUtilisateur.isPresent()) {
-//            return optionalUtilisateur.get();
-//        }
-//        return null;
-//    }
 }
